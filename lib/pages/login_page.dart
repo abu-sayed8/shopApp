@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shopapp/shared/form_decoration.dart';
+import 'package:shopapp/widgets/button_widgets.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -17,50 +19,51 @@ class _LoginPageState extends State<LoginPage> {
   }
   Widget _bodyUi(){
     final Size size=MediaQuery.of(context).size;
-    return Container(
-      child: SingleChildScrollView(
-        child: Column(
-          children: [
-            TextFormField(
-              keyboardType: TextInputType.text,
-              decoration: InputDecoration(
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide.none
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide.none
-                ),
-                focusedErrorBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide.none
-                ),
-                errorBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide.none
-                ),
-                hintText: 'Phone Number',
-                labelText: "Phone Number",
-                labelStyle: TextStyle(color: Colors.red),
-                fillColor:Colors.white,
-                border: InputBorder.none,
-                filled: true,
-              ),
+    return ListView(
+        children: [
+          Container(
+              padding: EdgeInsets.only(left: 10,right: 10),
+              child: Column(
+                children: [
+                  SizedBox(height: 20,),
+                  TextFormField(
+                    keyboardType: TextInputType.number,
+                    decoration: FormDecoration.copyWith(
+                      labelText: 'Phone Number',
+                      labelStyle: TextStyle(fontSize: size.width/18,fontWeight: FontWeight.w800)
+                    ),
+                    onChanged: (val){
+                      setState(() {
+                        print ("this is phone number");
+                      });
+                    },
 
-              
 
-              onChanged: (val){
-                setState(() {
-                  print ("this is phone number");
-                });
-              },
+                  ),
+                  SizedBox(height: 10,),
+                  TextFormField(
+                    keyboardType: TextInputType.text,
+                    decoration: FormDecoration.copyWith(
+                        labelText: 'Password',
+                        labelStyle: TextStyle(fontSize: size.width/18,fontWeight: FontWeight.w800)
+                    ),
+                    onChanged: (val){
+                      setState(() {
+                        print ("this is phone number");
+                      });
+                    },
 
-              
-            )
-          ],
-        )
-      ),
-    );
+
+                  ),
+                  SizedBox(height: 10,),
+                  GestureDetector(
+                    //onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>)),
+                    child: button(context, 'Login Now'),
+                  )
+                ],
+              )
+          )
+        ],
+      );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shopapp/pages/login_page.dart';
 import 'package:shopapp/shared/form_decoration.dart';
 import 'package:shopapp/widgets/button_widgets.dart';
 
@@ -54,6 +55,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
                     )
                   ],
                 )
+            ),
+            SizedBox(height: size.width / 15),
+            GestureDetector(
+              onTap: ()=>Navigator.push(context, MaterialPageRoute(builder: (context)=>LoginPage())),
+              child: Text('Back To Login',style: TextStyle(color: Colors.blue,fontSize: size.width/16,fontWeight: FontWeight.w800),textAlign: TextAlign.center,),
             )
           ],
       ),

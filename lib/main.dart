@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:shopapp/pages/login_page.dart';
+import 'package:firebase_core/firebase_core.dart' as firebase_core;
 import 'package:shopapp/pages/registration_page.dart';
-void main() {
+Future <void> main()async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await firebase_core.Firebase.initializeApp();
   runApp(MyApp());
 }
+
 
 class MyApp extends StatefulWidget {
   @override
